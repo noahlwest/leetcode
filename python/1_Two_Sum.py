@@ -9,3 +9,5 @@ class Solution:
                     return [index1, index2]
                 
         return []
+
+#time complexity: O(n^2)
