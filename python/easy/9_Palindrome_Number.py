@@ -19,3 +19,4 @@ class Solution:
             return True
             
         return False
+#time: O(log(x))

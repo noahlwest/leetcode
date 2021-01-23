@@ -23,4 +23,4 @@ class Solution:
         else:
             return new_num
 
-#runtime: O(log(x))
+#time: O(log(x))
