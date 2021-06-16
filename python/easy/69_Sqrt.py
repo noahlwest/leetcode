@@ -1,17 +1,23 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
         
-        #try each number up until around sqrt(2^31)
+        #binary search the numbers to find the int(floor(sqrt(x)))
         
-        closest_distance = 1000000
-        closest_int = 0
+        left = 0
+        right = 46341
+        middle = (left + right)//2
         
-        for i in range(0, 46341):                
-            distance = x - (i * i)
-            if distance < closest_distance and i*i <= x:
-                closest_int = i
-                closest_distance = distance
-                
-        return closest_int
+        while True:
+            mid_val = middle * middle
+            if mid_val < x:
+                if (middle+1) * (middle+1) > x:
+                    return middle
+                left = middle + 1
+                middle = (left + right)//2
+            elif mid_val > x:
+                right = middle - 1
+                middle = (left + right)//2
+            else: #mid_val == x:
+                return middle
 
-#runtime O(1) (but it's still not good)
+#runtime: O(1) (logarithmic, way faster than the brute force solution)
