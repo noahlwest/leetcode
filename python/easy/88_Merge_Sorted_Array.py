@@ -52,3 +52,5 @@ class Solution:
             else:
                 #we're off nums2 boundary, and nums1 "earlier" nums are already sorted
                 break
+
+#runtime: O(2n + m) -> O(n)
