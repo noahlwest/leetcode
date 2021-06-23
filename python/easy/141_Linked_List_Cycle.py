@@ -10,15 +10,17 @@ class Solution:
         if head is None:
             return False
         
-        seen = {}
+        tortoise = head
+        hare = head.next
         
-        while head is not None:
-            if id(head) in seen:
+        while True:
+            if tortoise == hare:
                 return True
-            else:
-                seen.update({id(head) : "_"})
-            head = head.next
+            if hare is None or hare.next is None:
+                return False
+            tortoise = tortoise.next
+            hare = hare.next.next
                 
         return False
 
-#runtime: O(n)
+#runtime: O(n)? worst case is that it hits 2n, I think
