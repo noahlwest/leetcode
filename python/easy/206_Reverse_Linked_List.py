@@ -6,29 +6,22 @@
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         
-        #recursive:
-        #go from top to bottom of list
-        #once at bottom of list:
-            #add the last value to the end of the current list
+        #at each step, reverse the pointer
         
-        ret_head = None
-        cur = None
+        prev_node = None
+        curr_node = head
+        next_node = None
         
-        def helper(node):
-            if node is None:
-                return
-            #navigate down the list
-            helper(node.next)
-            #at the bottom of the list: start appending values to ret
-            nonlocal ret_head, cur
-            if ret_head is None:
-                ret_head = ListNode(node.val)
-                cur = ret_head
-            else:
-                cur.next = ListNode(node.val)
-                cur = cur.next
-        
-        helper(head)
-        return ret_head
+        while(curr_node is not None):
+            #get pointer to next item in list
+            next_node = curr_node.next
+            #reverse the pointer of current item
+            curr_node.next = prev_node
+            #move down the list
+            prev_node = curr_node
+            curr_node = next_node
+            
+        return prev_node
+
 #runtime: O(n)
-#memory: O(n)? 
+#memory: O(1)? 
