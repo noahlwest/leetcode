@@ -17,5 +17,5 @@ class Solution:
                 
         return moves    
 
-#runtime: scales with (max - min) O(1) I guess, since -10^9 <= min, max <= 10^9
+#runtime: O(n) due to sum(), but really scales with (max-min)
 #memory: O(1)
