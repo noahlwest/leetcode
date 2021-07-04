@@ -1,17 +1,9 @@
 class Solution:
-    def findLHS(self, nums: List[int]) -> int:
+    def maxCount(self, m: int, n: int, ops: List[List[int]]) -> int:
         
-        cache = {}
-        for num in nums:
-            if num in cache:
-                cache[num] += 1
-            else:
-                cache.update({num : 1})
-        ret = 0
-        for key, value in cache.items():
-            ret = max(ret, value + cache.get(key+1, -100000))
-        
-        return ret
-
+        if ops == []:
+            return m * n
+        else:
+            return min(i[0] for i in ops) * min(i[1] for i in ops)
 #runtime: O(2n) -> O(n)
-#memory: O(n)
+#memory: O(1)
