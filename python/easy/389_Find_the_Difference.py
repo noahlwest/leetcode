@@ -9,3 +9,4 @@ class Solution:
 
 #runtime: O(n) leetcode runtimes aren't that much better than cache method. (36 min cache vs 32 min this method). Likely due to sample sizes
 #memory: O(1) memory usage also not that much better. (typically higher! on leetcode) Likely due to sample sizes
+#this would probably be better at scale
