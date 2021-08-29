@@ -10,5 +10,5 @@ class Solution:
                 
         return ret
 
-#runtime: O(n^2)
-#memory: O(n^2?)
+#runtime: O(n^2)?
+#memory: O(n^2)?
