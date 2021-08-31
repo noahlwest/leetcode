@@ -16,3 +16,6 @@ class Solution:
             jumps += 1
         
         return jumps
+
+    #runtime: O(n)
+    #memory: O(1)
