@@ -3,7 +3,7 @@ class Solution:
         rows = m
         columns = n
         #there is only one possible path for directly right and directly down
-        #use those to determine how many paths there are for the other 
+        #use those to determine how many paths there are for the other grid squares
         grid = [[1]*columns]*rows
         
         for i in range(1, rows):
