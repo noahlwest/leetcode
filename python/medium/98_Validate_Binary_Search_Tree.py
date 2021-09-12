@@ -8,22 +8,19 @@ class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
         #do inorder traversal and verify the output
-        self.arr = []
+        self.last = float(-inf)
         
         def dfs(node):
             if node is None:
-                return
-            dfs(node.left)
-            self.arr.append(node.val)
-            dfs(node.right)
-            
-        dfs(root)
-        
-        for i in range(1, len(self.arr)):
-            if self.arr[i] <= self.arr[i-1]:
+                return True
+            accum_l = dfs(node.left)
+            if node.val <= self.last:
                 return False
+            self.last = node.val
+            accum_r = dfs(node.right)
+            return True and accum_r and accum_l
             
-        return True
+        return dfs(root)
 
     #runtime: O(n)
-    #memory: O(n)
+    #memory: O(1)
